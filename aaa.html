@@ -1,0 +1,136 @@
+﻿<html>
+
+<head>
+ <link rel="stylesheet" href="cas.css">
+</head>
+
+
+<div class="window">
+<div id="text"> 0 </div>
+
+<div class="windownumber">
+<div onClick="clic(7);clic2(7);" class="btn"> 7 </div>
+<div onClick="clic(8);clic2(8);"  class="btn"> 8 </div>
+<div onClick="clic(9);clic2(9);" class="btn"> 9 </div>
+<div onClick="clic(4);clic2(4);"  class="btn"> 4 </div>
+<div onClick="clic(5);clic2(5);" class="btn"> 5 </div>
+<div onClick="clic(6);clic2(6);"  class="btn"> 6 </div>
+<div onClick="clic(1);clic2(1);" class="btn"> 1 </div>
+<div onClick="clic(2);clic2(2);"  class="btn"> 2 </div>
+<div onClick="clic(3);clic2(3);" class="btn"> 3 </div>
+<div onClick="clear1()"  class="btn"> C </div>
+<div onClick="clic(0);clic2(0);" class="btn"> 0 </div>
+<div onClick="ravno()"  class="btn"> = </div>
+</div>
+<div class="arg">
+<div onClick="symb('+');clic2('+');"  class="btn"> + </div>
+<div onClick="symb('-');clic2('-');"  class="btn"> - </div>
+<div onClick="symb('*');clic2('*');"  class="btn"> * </div>
+<div onClick="symb('/');clic2('/');"  class="btn"> / </div>
+<div onClick="symb('^');clic2('^');"  class="btn"> ^ </div>
+<div onClick="symb('%');clic2('mod');"  class="btn"> mod </div>
+<div onClick="symb('//');clic2('div');"  class="btn"> div </div>
+<div onClick="symb('<');clic2('sqrt');"  class="btn"> sqrt </div>
+<div onClick="document.getElementsByClassName('tablo')[0].style.background = 'red'"  class="btn"> !!! </div>
+</div>
+</div>
+<div id="tablo"> 0 </div>
+<script>
+
+document.onkeydown = function checkKeycode(event)
+{
+var keycode;
+if(!event) var event = window.event;
+if (event.keyCode) keycode = event.keyCode; // IE
+else if(event.which) keycode = event.which; // all browsers
+
+	switch(keycode){ 
+		case 96: clic2(0);clic(0); break;
+		case 97: clic(1); clic2(1); break;
+		case 98: clic2(2); clic(2);break;
+		case 99: clic2(3); clic(3);break;
+		case 100: clic2(4); clic(4);break;
+		case 101: clic2(5); clic(5);break;
+		case 102: clic2(6); clic(6);break;
+		case 103: clic2(7); clic(7);break;
+		case 104: clic2(8); clic(8);break;
+		case 105: clic2(9); clic(9);break;
+		}
+}
+
+var b = 0; 
+var k = '';
+var znak = false; 
+var lk = 0;
+
+function clic2 (x) {
+var stek = document.getElementById("text");
+if (stek.innerHTML != 0 )
+stek.innerHTML += x;
+else
+stek.innerHTML = x;
+
+} 
+function clear1() { // функция обнуления значений калькулятора
+	document.getElementById("tablo").innerHTML = 0;
+	b = 0; 
+	k = '';
+	znak = false;
+	document.getElementById("text").innerHTML = 0;
+	lk = 0;
+}
+
+
+
+function symb(symb) {// функция обработки операции
+	k = symb;
+	znak = false;
+	b = parseInt(tablo.innerHTML);
+	lk ++;
+	if (lk == 2) {
+		alert('error, please press C')
+		}
+}
+
+function ravno() {// функция вывода результата
+if(k!=''){		
+	switch(k){
+		case '/': b = b / parseInt(tablo.innerHTML);break;
+		case '*': b = b * parseInt(tablo.innerHTML);break;
+		case '-': b = b - parseInt(tablo.innerHTML);break;
+		case '+': b = b + parseInt(tablo.innerHTML);break;
+		case '^': b = b ** parseInt(tablo.innerHTML);break;
+		case '%': b = b % parseInt(tablo.innerHTML);break;
+		case '//': b = Math.floor(b / parseInt(tablo.innerHTML));break;
+		case '<': b = Math.sqrt(b) ;break;
+	}
+	tablo.innerHTML = b;
+	text.innerHTML = b;
+	k = ''; 
+	lk = 0;
+}
+}
+
+function clic(number) {// функция запоминания введеных значений
+	
+	var window_calc = document.getElementById("tablo");
+
+if(window_calc.innerHTML.length < 22){
+
+if(window_calc.innerHTML != 0 && znak == true )
+
+	window_calc.innerHTML += number;
+
+else	
+	window_calc.innerHTML = number;
+
+znak = true; 
+}
+ 
+}
+
+
+
+</script>
+
+</html>

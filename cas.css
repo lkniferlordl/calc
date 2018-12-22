@@ -1,0 +1,64 @@
+#text{
+		  width:350px;
+	   display: -webkit-inline-flex;
+ display: inline-flex;
+border: 1px #000 solid;
+background: white;
+	
+}
+#tablo{
+color:white;
+}
+
+.btn{
+width: 50px;
+height: 50px;
+border: 1px red solid;
+}
+
+.btn{
+	
+	width:50px;
+	height: 50px;
+	background: aqua;
+	margin-top: 10px;
+	margin-right: 5px;
+	text-align: center;
+}
+
+  .btn:hover {
+      background: #f70;       
+	  color: #fff;
+  }
+  
+  .window{
+	 display: -webkit-flex; 
+	display: flex;
+	flex-wrap: wrap;
+	  width:360px;
+	  height:285px;
+	  background: green;
+	  border: 2px solid red;
+  }
+  
+  
+  .windownumber{
+	   display: -webkit-inline-flex;
+ display: inline-flex;
+ flex-wrap: wrap;
+	  width:180;
+	  height:250px;
+	  background: red;
+	  
+  }
+  
+  .arg{
+	  	 display: -webkit-inline-flex;
+		flex-wrap: wrap;
+		background:yellow;
+		width:180;
+	  height:250px;
+
+	  
+	  
+  }
